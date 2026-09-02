@@ -33,19 +33,18 @@ export default function Home() {
     }
   }, [todos, isLoaded]);
 
-  // CREATE
-  const handleAddTodo = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!newTodo.trim()) return;
+  // CREATE (Únicamente con tecla Enter)
+  const addTodo = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && newTodo.trim() !== "") {
+      const todo: Todo = {
+        id: Date.now(),
+        text: newTodo.trim(),
+        completed: false,
+      };
 
-    const todo: Todo = {
-      id: Date.now(),
-      text: newTodo.trim(),
-      completed: false,
-    };
-
-    setTodos([todo, ...todos]);
-    setNewTodo("");
+      setTodos([todo, ...todos]);
+      setNewTodo("");
+    }
   };
 
   // UPDATE (Tachar / Destachar)
@@ -57,7 +56,7 @@ export default function Home() {
     );
   };
 
-  // UPDATE (Editar texto)
+  // UPDATE (Editar texto directamente)
   const updateTodo = (id: number, newText: string) => {
     setTodos(
       todos.map((todo) =>
@@ -81,7 +80,7 @@ export default function Home() {
         <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-800 pb-5">
           <div>
             <h1 className="text-2xl font-bold tracking-tight text-white">
-              Lista de Tareas
+              TODO LIST
             </h1>
             <p className="text-xs text-zinc-400">BPDS Project · Next.js CRUD</p>
           </div>
@@ -95,28 +94,21 @@ export default function Home() {
           </div>
         </header>
 
-        {/* CREATE Form */}
-        <form onSubmit={handleAddTodo} className="flex gap-2">
-          <input
-            type="text"
-            placeholder="Añadir nueva tarea y presionar Enter..."
-            value={newTodo}
-            onChange={(e) => setNewTodo(e.target.value)}
-            className="flex-1 bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
-          />
-          <button
-            type="submit"
-            className="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold px-5 py-3 rounded-xl transition-colors shrink-0"
-          >
-            Agregar
-          </button>
-        </form>
+        {/* CREATE Input (Sin botón) */}
+        <input
+          type="text"
+          placeholder="Escribe una tarea y presiona Enter"
+          value={newTodo}
+          onChange={(e) => setNewTodo(e.target.value)}
+          onKeyDown={addTodo}
+          className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
+        />
 
         {/* READ & UPDATE & DELETE List */}
         <ul className="space-y-2">
           {todos.length === 0 ? (
             <li className="text-center py-10 text-zinc-500 text-sm border border-dashed border-zinc-800 rounded-xl">
-              No hay tareas registradas. Escribe una arriba.
+              No hay tareas registradas. Escribe una arriba y presiona Enter.
             </li>
           ) : (
             todos.map((todo) => (
