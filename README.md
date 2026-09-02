@@ -1,13 +1,36 @@
-este es el readme de buenas preacticas de desarrollo de software
-modifique el readme
-edite los archivos en la rama prod
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
- BPDS - Buenas Prácticas de Desarrollo de Software
+## Getting Started
 
-Estudiante:matias morales rodriquez
-Asignatura:Buenas Prácticas de Desarrollo de Software
-Universidad:Universidad de la Costa
-Semestre:segundo semestre de tecnico en desarrollo de software 
+First, run the development server:
 
-Descripción
-Este repositorio corresponde a la práctica de flujo de trabajo con Git y GitHub, donde se trabajó con ramas, cambios y Pull Requests. Se creó la rama prod a partir de main, se realizaron cambios en un proyecto CRUD, se generó y resolvió un conflicto entre ramas, y se completó la integración mediante un Pull Request.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
