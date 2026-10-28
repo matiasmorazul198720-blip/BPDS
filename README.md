@@ -75,4 +75,9 @@ Ahí podremos ver la aplicación funcionando. Cualquier cambio que se realice en
 - REATIGA VILLADIEGO KEVIN ANDRES — Noxus2OO7
 - SANTIZ MESTRE SEBASTIAN — sjsm2104-crypto
 - PALOMINO PINZON GABRIEL — theron102
+<<<<<<< HEAD
 hola
+=======
+- hola
+  
+>>>>>>> 505298f7771f2334ea9caf51fa56979a023e3117
